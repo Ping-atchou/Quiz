@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz interactif (3 choix)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="card" role="application" aria-label="Quiz interactif 3 choix">
+    <header class="header">
+      <h1 class="title">Quiz interactif (3 choix)</h1>
+      <p class="subtitle">
+        La mascotte se déplace selon la réponse choisie. Questions & réponses mélangées automatiquement.
+      </p>
+    </header>
+
+    <main class="content" id="app">
+      <!-- Scène et image -->
+      <section class="stage" aria-hidden="true">
+        <div class="lane" aria-hidden="true"><div></div><div></div><div></div></div>
+
+        <!-- Remplace par ton SVG/PNG si tu veux -->
+        <div id="marker" class="marker pos-1" title="Mascotte">
+          <img src="assets/perso.svg" alt="Personnage" />
+        </div>
+      </section>
+
+      <!-- Question -->
+      <div class="question" id="question">Chargement…</div>
+
+      <!-- Choix -->
+      <div class="choices" id="choices" role="group" aria-label="Choix de réponse"></div>
+
+      <!-- Feedback -->
+      <div id="feedback" class="feedback" style="display:none;">
+        <div>
+          <div id="status" class="status"></div>
+          <div id="info" class="info"></div>
+        </div>
+        <button id="nextBtn" class="pill primary" aria-label="Question suivante">Question suivante ⮕</button>
+      </div>
+
+      <!-- Pied (progression + commandes) -->
+      <footer class="footer">
+        <div class="meta" id="progress">0 / 0</div>
+        <div class="meta" id="score">Score : 0</div>
+        <button id="resetBtn" class="pill" aria-label="Relancer le quiz">Réinitialiser</button>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

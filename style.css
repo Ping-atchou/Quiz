@@ -1,0 +1,41 @@
+/* Conteneur de l'image qui bouge */
+.marker {
+  position: absolute;
+  bottom: 14px;
+
+  /* ⬇️ Dimensions : un peu plus grand pour voir l'image au complet */
+  width: 140px;             /* tu peux ajuster 140 → 160/180 si tu veux plus grand */
+  height: 140px;
+
+  /* ⬇️ Fond blanc derrière l'image */
+  background: #ffffff;
+
+  /* ⬇️ Retirer l'effet "pastille" ronde + déco */
+  border-radius: 8px;       /* léger arrondi carré; mets 0 si tu veux des coins droits */
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+
+  /* Mise en page et animation */
+  display: grid;
+  place-items: center;
+  user-select: none;
+  overflow: hidden;         /* laisser "hidden" pour éviter les débordements accidentels */
+  transition: left 380ms cubic-bezier(.2,.8,.2,1), transform 380ms cubic-bezier(.2,.8,.2,1);
+}
+
+/* Image : visible en entier, centrée, avec marges internes */
+.marker img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;              /* respect du ratio original */
+  height: auto;             /* respect du ratio original */
+  object-fit: contain;      /* l'image TIENT en entier */
+  background: transparent;  /* le SVG garde sa transparence interne */
+  pointer-events: none;
+  padding: 8px;             /* petite marge pour «respirer» sur fond blanc */
+}
+
+/* Positions horizontales (inchangées) */
+.pos-0 { left: 12px; }
+.pos-1 { left: calc(50% - 70px); }   /* 70 = width/2 (140/2) */
+.pos-2 { left: calc(100% - 152px); } /* 140 + 12px de marge */
